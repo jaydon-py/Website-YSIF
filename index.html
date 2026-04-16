@@ -17,12 +17,38 @@
       line-height: 1.7;
     }
 
+    .header-wrap {
+      position: relative;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/York_Minster_from_the_SW_2014.jpg/1920px-York_Minster_from_the_SW_2014.jpg');
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    .header-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(80, 10, 10, 0.92) 0%,
+        rgba(100, 15, 15, 0.85) 15%,
+        rgba(120, 20, 20, 0.70) 35%,
+        rgba(140, 25, 25, 0.45) 55%,
+        rgba(160, 30, 30, 0.18) 75%,
+        rgba(180, 35, 35, 0.0) 100%
+      );
+      pointer-events: none;
+    }
+
     nav {
+      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.25rem 2.5rem;
-      border-bottom: 0.5px solid #e0e0e0;
+      border-bottom: 0.5px solid rgba(255,255,255,0.15);
       font-family: 'Merriweather', serif;
     }
 
@@ -30,6 +56,7 @@
       font-size: 18px;
       font-weight: 700;
       letter-spacing: 0.04em;
+      color: #ffffff;
     }
 
     .nav-links {
@@ -40,14 +67,16 @@
     .nav-links a {
       font-size: 14px;
       font-weight: 300;
-      color: #666;
+      color: rgba(255,255,255,0.75);
       text-decoration: none;
     }
 
-    .nav-links a:hover { color: #1a1a1a; }
+    .nav-links a:hover { color: #ffffff; }
 
     .hero {
-      padding: 5rem 2.5rem 4rem;
+      position: relative;
+      z-index: 2;
+      padding: 5rem 2.5rem 6rem;
       max-width: 760px;
     }
 
@@ -56,7 +85,7 @@
       font-weight: 500;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #888;
+      color: rgba(255,255,255,0.6);
       margin-bottom: 1.25rem;
     }
 
@@ -65,11 +94,12 @@
       font-weight: 500;
       line-height: 1.2;
       margin-bottom: 1.25rem;
+      color: #ffffff;
     }
 
     .hero p {
       font-size: 17px;
-      color: #555;
+      color: rgba(255,255,255,0.82);
       line-height: 1.7;
       max-width: 560px;
     }
@@ -77,6 +107,7 @@
     .section {
       padding: 3.5rem 2.5rem;
       border-top: 0.5px solid #e0e0e0;
+      background: #ffffff;
     }
 
     .section-label {
@@ -215,6 +246,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: #ffffff;
     }
 
     footer p {
@@ -225,7 +257,7 @@
     @media (max-width: 640px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1.25rem; }
-      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .hero { padding: 3rem 1.25rem 4rem; }
       .hero h1 { font-size: 28px; }
       .section { padding: 2.5rem 1.25rem; }
       .about-grid { grid-template-columns: 1fr; }
@@ -238,20 +270,22 @@
 </head>
 <body>
 
-  <nav>
-    <div class="nav-logo">YSIF</div>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#join">Join us</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <div class="header-wrap">
+    <nav>
+      <div class="nav-logo">YSIF</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#join">Join us</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
-  <div class="hero">
-    <div class="hero-tag">York Student Investment Fund</div>
-    <h1>Who we are.</h1>
-    <p>Founded by Jaydon Tomlins and Sam Ardern, YSIF is a student-led fund dedicated to managing an investment portfolio, with the aim of providing members with practical experience and valuable insight into the world of investing.</p>
+    <div class="hero">
+      <div class="hero-tag">York Student Investment Fund</div>
+      <h1>Who we are.</h1>
+      <p>Founded by Jaydon Tomlins and Sam Ardern, YSIF is a student-led fund dedicated to managing an investment portfolio, with the aim of providing members with practical experience and valuable insight into the world of investing.</p>
+    </div>
   </div>
 
   <div class="section" id="about">
@@ -313,3 +347,4 @@
 
 </body>
 </html>
+
