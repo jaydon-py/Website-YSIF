@@ -96,6 +96,21 @@
       font-family: 'Merriweather', serif;
     }
 
+    .hero h1 {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .hero h1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 3px;
+      background-color: #6B0F0F;
+    }
+    
     .hero p {
       font-size: 17px;
       color: rgba(0,0,0,0.82);
