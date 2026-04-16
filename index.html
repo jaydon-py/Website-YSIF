@@ -41,14 +41,34 @@
       gap: 2rem;
     }
 
-    .nav-links a {
-      font-size: 14px;
-      font-weight: 300;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-    }
-
-    .nav-links a:hover { color: #ffffff; }
+      .nav-links a {
+    position: relative; /* ADD THIS */
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+  }
+  
+  /* underline (hidden by default) */
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: darkorange;
+    transition: width 0.3s ease;
+  }
+  
+  /* hover effects */
+  .nav-links a:hover {
+    color: #ffffff;
+  }
+  
+  .nav-links a:hover::after {
+    width: 100%;
+  }
 
     .hero {
       position: relative;
