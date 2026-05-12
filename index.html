@@ -313,42 +313,77 @@
       color: #8a817a;
       font-family: 'Merriweather', serif;
     }
+
+
     .holdings {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 10px;
-      margin-top: 0.5rem;
-    }
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 2rem;
+      border: 1px solid #d6d0cb; }
 
     .holding {
-      background: #fff;
-      border: 0.5px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
+      background: #f5f3f1;
+      padding: 2.25rem 2rem;
+      min-height: 190px;
+    
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    
+      border-right: 1px solid #d6d0cb;
+    
+      border-radius: 0;
+      box-shadow: none;
+      transition: background 0.2s ease;
     }
-
+    
+    .holding:last-child {
+      border-right: none;
+    }
+    
+    .holding:hover {
+      transform: none;
+      box-shadow: none;
+      background: #f1efec;
+    }
+    
     .holding-ticker {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 2px;
+      font-size: 2.5rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #3a0000;
       font-family: 'Merriweather', serif;
     }
-
+    
     .holding-name {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 8px;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8a817a;
+      margin-bottom: 1rem;
       font-family: 'Merriweather', serif;
     }
-
+    
     .holding-sector {
-      font-size: 11px;
-      padding: 3px 8px;
-      border-radius: 20px;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    
+      padding: 0;
+      border-radius: 0;
+      background: none;
+    
+      color: #5f5a55;
+      border-top: 1px solid #cfc7c1;
+      padding-top: 0.75rem;
+    
       display: inline-block;
-      background: #f5f5f3;
-      color: #666;
     }
+
+
+    
 
     .join-steps {
       display: grid;
@@ -465,6 +500,12 @@
               border-bottom: 1px solid #d6d0cb; }
       .stat:last-child { border-bottom: none; }
       .stat-num { font-size: 4rem; }
+      .holdings { grid-template-columns: 1fr; }
+      .holding { min-height: 160px;
+                 border-right: none;
+                 border-bottom: 1px solid #d6d0cb; }
+      .holding:last-child { border-bottom: none; }
+      .holding-ticker { font-size: 2rem; }
       .join-steps { grid-template-columns: 1fr; }
       .contact-row { gap: 1.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
