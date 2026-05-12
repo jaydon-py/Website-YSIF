@@ -272,40 +272,55 @@
     }
 
     .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 2.5rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 3rem;
+  border: 1px solid #d6d0cb;
+}
 
-    .stat {
-      background: #f5f5f3;
-      border-radius: 8px;
-      padding: 1.25rem;
-    }
+.stat {
+  background: #f5f3f1;
+  padding: 4rem 3rem;
+  min-height: 260px;
 
-    .stat, .holding, .step {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    
-    .stat:hover, .holding:hover, .step:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-    .stat-num {
-      font-size: 28px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      font-family: 'Merriweather', serif;
-    }
+  border-right: 1px solid #d6d0cb;
 
-    .stat-label {
-      font-size: 13px;
-      color: #888;
-      font-family: 'Merriweather', serif;
-    }
+  border-radius: 0;
+  box-shadow: none;
+  transition: background 0.2s ease;
+}
 
+.stat:last-child {
+  border-right: none;
+}
+
+.stat:hover {
+  transform: none;
+  box-shadow: none;
+  background: #f1efec;
+}
+
+.stat-num {
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #3a0000;
+  font-family: 'Merriweather', serif;
+}
+
+.stat-label {
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a817a;
+  font-family: 'Merriweather', serif;
+}
     .holdings {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -451,7 +466,13 @@
       .hero h1 { font-size: 28px; }
       .section { padding: 2.5rem 1.25rem; }
       .about-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: repeat(3, 1fr); }
+      .stats { grid-template-columns: 1fr; }
+      .stat { min-height: 180px;
+              padding: 2.5rem 2rem;
+              border-right: none;
+              border-bottom: 1px solid #d6d0cb; }
+      .stat:last-child { border-bottom: none; }
+      .stat-num { font-size: 4rem; }
       .join-steps { grid-template-columns: 1fr; }
       .contact-row { gap: 1.5rem; }
       footer { flex-direction: column; gap: 0.5rem; text-align: center; }
