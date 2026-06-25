@@ -1,552 +1,278 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="York Student Investment Fund — a student-led fund developing practical investment experience at the University of York.">
+  <meta name="theme-color" content="#5d0b12">
   <title>York Student Investment Fund</title>
-  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-      color: #1a1a1a;
-      background: #ffffff;
-      line-height: 1.7;
-    }
-
-    nav {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 2.5rem;
-      background: #6B0F0F;
-      border-bottom: 3px solid #ffffff;
-      font-family: 'Merriweather', serif;
-    }
-
-    .nav-logo {
-      display: flex;         
-      align-items: center;   
-      gap: 6px;               
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      color: #ffffff;
-    }
-
-    .nav-logo img {
-      height: 18px;
-      width: auto;
-      display: block;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-      .nav-links a {
-    position: relative; /* ADD THIS */
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.75);
-    text-decoration: none;
-  }
-  
-  /* underline (hidden by default) */
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background-color: darkorange;
-    transition: width 0.3s ease;
-  }
-  
-  /* hover effects */
-  .nav-links a:hover {
-     color: #ffffff;
-  }
-  
-  .nav-links a:hover::after {
-      width: 100%;
-  }
- 
-    .chevron {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-right: 1.5px solid currentColor;
-      border-bottom: 1.5px solid currentColor;
-      transform: rotate(45deg) translateY(-2px);
-      transition: transform 0.2s ease;
-      margin-top: 1px;
-    }
-    
-    .hero {
-      position: relative;
-      z-index: 2;
-      padding: 5rem 2.5rem 6rem;
-      max-width: 760px;
-    }
-
-    .hero-tag {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 500;
-      line-height: 1.2;
-      margin-bottom: 1.25rem;
-      color: #ffffff;
-      font-family: 'Merriweather', serif;
-    }
-
-    .hero h1 {
-      position: relative;
-      display: inline-block;
-    }
-  
-    .hero h1::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -8px;
-      width: 100%;
-      height: 3px;
-      background-color: #ffffff;
-    }
-    
-    .hero p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-
-    .section {
-      padding: 3.5rem 2.5rem;
-      border-top: 0.5px solid #e0e0e0;
-      background: #ffffff;
-    }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #888;
-      margin-bottom: 2rem;
-      border-top: 2px solid #6B0F0F;
-      padding-top: 0.6rem;
-      display: inline-block;
-    }
-
-    .header-wrap {
-      position: relative;
-      background: url('ysif-background.png') center center / cover no-repeat;
-    }
-    
-    .header-wrap::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 1;
-    }
-    
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .about-grid p {
-      font-size: 15px;
-      color: #555;
-      line-height: 1.75;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      margin-top: 3rem;
-      border: 1px solid #d6d0cb; }
-    .stat {
-      background: #f5f3f1;
-      padding: 4rem 3rem;
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border-right: 1px solid #d6d0cb;
-      border-radius: 0;
-      box-shadow: none;
-      transition: background 0.2s ease; }
-    .stat:last-child {
-      border-right: none;
-    }
-    .stat:hover {
-      transform: none;
-      box-shadow: none;
-      background: #f1efec;
-    }
-
-    .stat-num {
-      font-size: 6rem;
-      line-height: 1;
-      font-weight: 700;
-      margin-bottom: 1.25rem;
-      color: #3a0000;
-      font-family: 'Merriweather', serif;
-    }
-    
-    .stat-label {
-      font-size: 1.05rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #8a817a;
-      font-family: 'Merriweather', serif;
-    }
-
-
-    .holdings {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      margin-top: 2rem;
-      border: 1px solid #d6d0cb; }
-
-    .holding {
-      background: #f5f3f1;
-      padding: 2.25rem 2rem;
-      min-height: 190px;
-    
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    
-      border-right: 1px solid #d6d0cb;
-    
-      border-radius: 0;
-      box-shadow: none;
-      transition: background 0.2s ease;
-    }
-    
-    .holding:last-child {
-      border-right: none;
-    }
-    
-    .holding:hover {
-      transform: none;
-      box-shadow: none;
-      background: #f1efec;
-    }
-    
-    .holding-ticker {
-      font-size: 2.5rem;
-      line-height: 1;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #3a0000;
-      font-family: 'Merriweather', serif;
-    }
-    
-    .holding-name {
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #8a817a;
-      margin-bottom: 1rem;
-      font-family: 'Merriweather', serif;
-    }
-    
-    .holding-sector {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    
-      padding: 0;
-      border-radius: 0;
-      background: none;
-    
-      color: #5f5a55;
-      border-top: 1px solid #cfc7c1;
-      padding-top: 0.75rem;
-    
-      display: inline-block;
-    }
-
-
-    
-
-    .join-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .step {
-      padding: 1.5rem;
-      background: #f5f5f3;
-      border-radius: 12px;
-    }
-
-    .step-num {
-      font-size: 13px;
-      font-weight: 500;
-      color: #888;
-      margin-bottom: 0.75rem;
-    }
-
-    .step h3 {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      font-family: 'Merriweather', serif;
-    }
-
-    .step p {
-      font-size: 13px;
-      color: #666;
-      line-height: 1.6;
-    }
-
-    .contact-row {
-      display: flex;
-      gap: 3rem;
-      margin-top: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .contact-item {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.8;
-    }
-
-    .contact-item span {
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-
-    .coming-soon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 4rem 2rem;
-      text-align: center;
-      gap: 1rem;
-    }
- 
-    .coming-soon-badge {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #6B0F0F;
-      background: #f9efef;
-      border: 0.5px solid #e8c5c5;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-family: 'Merriweather', serif;
-    }
- 
-    .coming-soon h3 {
-      font-family: 'Merriweather', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: #1a1a1a;
-    }
- 
-    .coming-soon p {
-      font-size: 14px;
-      color: #888;
-      max-width: 360px;
-      line-height: 1.7;
-    }
-
-    footer {
-      padding: 2rem 2.5rem;
-      border-top: 0.5px solid #e0e0e0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #ffffff;
-    }
-
-    footer p {
-      font-size: 13px;
-      color: #888;
-    }
-
-    @media (max-width: 640px) {
-      nav { padding: 1rem 1.25rem; }
-      .nav-links { gap: 1.25rem; }
-      .hero { padding: 3rem 1.25rem 4rem; flex-direction: column; gap: 2rem; }
-      .hero h1 { font-size: 28px; }
-      .section { padding: 2.5rem 1.25rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .stats { grid-template-columns: 1fr; }
-      .stat { min-height: 180px;
-              padding: 2.5rem 2rem;
-              border-right: none;
-              border-bottom: 1px solid #d6d0cb; }
-      .stat:last-child { border-bottom: none; }
-      .stat-num { font-size: 4rem; }
-      .holdings { grid-template-columns: 1fr; }
-      .holding { min-height: 160px;
-                 border-right: none;
-                 border-bottom: 1px solid #d6d0cb; }
-      .holding:last-child { border-bottom: none; }
-      .holding-ticker { font-size: 2rem; }
-      .join-steps { grid-template-columns: 1fr; }
-      .contact-row { gap: 1.5rem; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="header-wrap">
-    <nav>
-      <div class="nav-logo">
-        <img src="logo.png" alt="YSIF logo">
-        <span>YSIF</span>
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#team">The Team</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="York Student Investment Fund home">
+      <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
+      <span class="brand-copy">
+        <strong>YSIF</strong>
+        <small>York Student Investment Fund</small>
+      </span>
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span></span><span></span><span></span><span class="sr-only">Open menu</span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary" data-nav>
+      <a href="#about">About</a>
+      <a href="#development">Development</a>
+      <a href="#approach">Approach</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#join">Join</a>
+      <a class="nav-cta" href="#contact">Contact us <span aria-hidden="true">↗</span></a>
     </nav>
+  </header>
 
-    <div class="hero">
-      <div class="hero-tag">York Student Investment Fund</div>
-      <h1>Who we are.</h1>
-      <p>Based in the University of York, YSIF is a student-led fund dedicated to managing an investment portfolio, with the aim of providing members with practical experience and valuable insight into the world of investing.
-      
-        YSIF is fully operated, organised and funded by students - with no alumni backing.</p>
-    </div>
-  </div>
-
-  <div class="section" id="about">
-    <div class="section-label">About</div>
-    <div class="about-grid">
-      <p>YSIF is a student-led investment fund based at the University of York. Our members develop their skills in fundamental equity research, valuation, and portfolio construction.</p>
-      <p>We meet bi-weekly to pitch, debate, and vote on proposals. Every member plays an active role in the fund's strategy, from sector coverage to risk management, giving them experience that goes beyond the lecture theatre.</p>
-    </div>
-  
-    <div class="stats">
-      <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Active members</div></div>
-      <div class="stat"><div class="stat-num">12</div><div class="stat-label">Holdings</div></div>
-      <div class="stat"><div class="stat-num">2026</div><div class="stat-label">Founded</div></div>
-    </div>
-  </div>
-  
-  <div class="section" id="portfolio">
-    <div class="section-label">Portfolio & Top Holdings</div>
-    <div class="holdings">
-      <div class="holding"><div class="holding-ticker">GLEN</div><div class="holding-name">Glencore PLC</div><div class="holding-sector">Materials</div></div>
-      <div class="holding"><div class="holding-ticker">CRWD</div><div class="holding-name">CrowdStrike Holdings</div><div class="holding-sector">Technology</div></div>
-      <div class="holding"><div class="holding-ticker">NVO</div><div class="holding-name">Novo Nordisk A/S</div><div class="holding-sector">Healthcare</div></div>
-      <div class="holding"><div class="holding-ticker">BRK.B</div><div class="holding-name">Berkshire Hathaway</div><div class="holding-sector">Financials</div></div>
-    </div>
-  </div>
-
-  <div style="margin-top: 1.25rem; display: flex; flex-direction: column; align-items: center;">
-    <div style="display: flex; width: 100%; max-width: 800px; height: 16px; border-radius: 6px; overflow: hidden;">
-      <div style="width: 32%; background: #1A0303;" title="Technology 32%"></div>
-      <div style="width: 27%; background: #5C1212;" title="Healthcare 27%"></div>
-      <div style="width: 17%; background: #851B1B;" title="Financial Services 17%"></div>
-      <div style="width: 15%; background: #A32020;" title="Materials 15%"></div>
-      <div style="width: 5%; background: #D95555;" title="Consumer 5%"></div>
-      <div style="width: 4%; background: #F0A0A0;" title="Energy 4%"></div>
-      <!--<div style="width: 12%; background: #FCE8E8;" title="Cash 12%"></div>-->
-
-
-    </div>
-    <div style="display: flex; gap: 1.5rem; margin-top: 0.75rem; flex-wrap: wrap;">
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#1A0303;"></span>Technology 32%</span>
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#5C1212;"></span>Healthcare 27%</span>
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#851B1B;"></span>Financial Services 17%</span>
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#A32020;"></span>Materials 15%</span>
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#D95555;"></span>Consumer 5%</span>
-      <span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px; font-family: 'Merriweather', serif;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#F0A0A0;"></span>Energy 4%</span>
-      <!--<span style="font-size: 12px; color: #888; display: flex; align-items: center; gap: 6px;"><span style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#FCE8E8;"></span>Cash 12%</span>-->
-    </div>
-  </div>
-
-
-  <div class="section" id="team">
-    <div class="section-label">Meet the team</div>
-    <div class="coming-soon">
-      <h3>We're working on this.</h3>
-      <p>Team profiles will be available here shortly. Check back soon.</p>
-    </div>
-  </div>
-  
-  <div class="section" id="join">
-    <div class="section-label">Join us</div>
-    <div class="join-steps">
-      <div class="step">
-        <div class="step-num">Step 01</div>
-        <h3>Apply</h3>
-        <p>Fill out our short application form. No prior experience required.</p>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-photo" aria-hidden="true"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">Based at the University of York · Est. 2026</p>
+        <h1 class="reveal">York Student<br><em>Investment Fund.</em></h1>
+        <p class="hero-intro reveal">An independent, student-led fund based at the University of York, providing practical experience in equity research, valuation and portfolio management.</p>
+        <div class="hero-actions reveal">
+          <a class="button button-light" href="#portfolio">Explore the portfolio <span>↘</span></a>
+          <a class="text-link" href="#join-application">Become a member <span>↓</span></a>
+        </div>
       </div>
-      <div class="step">
-        <div class="step-num">Step 02</div>
-        <h3>Induction</h3>
-        <p>Join our induction sessions where you'll learn how the fund operates and understand the ropes fast</p>
-      </div>
-      <div class="step">
-        <div class="step-num">Step 03</div>
-        <h3>Pitch</h3>
-        <p>Research a company and present your investment thesis to the fund. Get voted in and start contributing to the portfolio.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="section" id="contact">
-    <div class="section-label">Contact</div>
-    <div class="contact-row">
-      <div class="contact-item"><span>Email</span><br>yorkstudentinvestmentfund@gmail.com</div>
-      <div class="contact-item"><span>Instagram</span><br>@ysif_york</div>
-      <div class="contact-item"><span>LinkedIn</span><br>York Student Investment Fund</div>
-    </div>
-  </div>
+      <aside class="hero-card reveal" aria-label="Fund snapshot">
+        <div class="card-topline"><span>Fund snapshot</span><span class="live-dot">Student managed</span></div>
+        <div class="hero-stat"><strong data-count="12">12</strong><span>Current holdings</span></div>
+        <div class="snapshot-row"><span>Active members</span><strong>10+</strong></div>
+        <div class="snapshot-row"><span>Top allocation</span><strong>Technology · 32%</strong></div>
+        <div class="snapshot-row"><span>Meeting schedule</span><strong>Weekly</strong></div>
+      </aside>
 
-  <footer>
-    <p>© 2026 York Student Investment Fund</p>
+      <div class="hero-foot">
+        <span>Fundamental equity research</span>
+        <a href="#about">Scroll to discover <span class="scroll-line"></span></a>
+      </div>
+    </section>
+
+    <section class="about section-pad" id="about">
+      <div class="section-heading reveal">
+        <p class="kicker"><span>01</span> Who we are</p>
+        <h2>Practical investment<br><em>experience.</em></h2>
+      </div>
+      <div class="about-copy reveal">
+        <p class="lead">Developing investment judgement through research, analysis and structured evaluation.</p>
+        <p>Based at the University of York, YSIF is fully operated, organised and funded by students. Members gain direct experience in fundamental research, valuation and portfolio construction.</p>
+        <p>The fund meets weekly to consider company research and review investment assumptions. Members contribute to sector coverage, portfolio strategy and risk management.</p>
+        <p>Alongside the fund's investment activity, we run a structured seminar series to improve students' understanding of investing and support their progression towards careers in finance.</p>
+        <a class="inline-link" href="#approach">How we make decisions <span>→</span></a>
+      </div>
+      <div class="about-stats reveal">
+        <div><strong data-count="10" data-suffix="+">10+</strong><span>Active members</span></div>
+        <div><strong data-count="12">12</strong><span>Portfolio holdings</span></div>
+        <div><strong>100%</strong><span>Student led</span></div>
+      </div>
+    </section>
+
+    <section class="development section-pad" id="development">
+      <div class="development-head reveal">
+        <div>
+          <p class="kicker"><span>02</span> Education and progression</p>
+          <h2>Structured learning<br><em>and responsibility.</em></h2>
+        </div>
+        <div class="development-summary">
+          <p class="lead">A six-week financial education series provides members with a practical foundation in investment analysis.</p>
+          <p>The programme introduces equity research, financial analysis, valuation and the principles of portfolio management. Following the series, participants work in groups to research and present a selected group of equities to the fund for formal review.</p>
+          <p>Continued participation gives members the opportunity to take on greater analytical, editorial and leadership responsibility. The structure is intended to develop relevant professional skills and support career progression within finance and investment management.</p>
+        </div>
+      </div>
+
+      <div class="structure-block reveal">
+        <div class="structure-title">
+          <span>Governance</span>
+          <div>
+            <p class="micro-label">Fund structure</p>
+            <h3>Executive Committee</h3>
+            <p>Oversees the fund's operations and determines its strategic direction.</p>
+          </div>
+        </div>
+        <div class="structure-grid">
+          <article>
+            <span>01</span>
+            <h4>Primary Fund Management</h4>
+            <p>Responsible for equity research, stock pitches, portfolio monitoring and the continued development of members' financial analysis skills.</p>
+            <small>Analysts and Senior Analysts</small>
+          </article>
+          <article>
+            <span>02</span>
+            <h4>Alternative Strategies</h4>
+            <p>Examines alternative markets and investment strategies, including quantitative analysis, commodities and digital assets.</p>
+            <small>Senior Analysts and Investment Strategy Analysts</small>
+          </article>
+          <article>
+            <span>03</span>
+            <h4>Writing &amp; Communications</h4>
+            <p>Produces articles and educational material to communicate the work of the fund internally and to a wider audience.</p>
+            <small>Financial Writers and Editors</small>
+          </article>
+        </div>
+      </div>
+
+      <div class="progression reveal">
+        <div class="progression-intro">
+          <p class="micro-label">Member progression</p>
+          <h3>A defined pathway through the fund.</h3>
+          <p>Progression reflects contribution, analytical development and the assumption of additional responsibility.</p>
+        </div>
+        <ol class="progression-path">
+          <li><span>01</span><div><strong>Trainee</strong><small>Participates in the introductory education programme</small></div></li>
+          <li><span>02</span><div><strong>Analyst</strong><small>Researches markets and analyses fund activity</small></div><em>Following training</em></li>
+          <li><span>03</span><div><strong>Specialised Analyst</strong><small>Sector research, investment strategy, financial writing or editing</small></div><em>By application</em></li>
+          <li><span>04</span><div><strong>Committee Member</strong><small>Oversees an area of fund activity, manages analysts and contributes to strategic decisions</small></div><em>Appointed by the Committee</em></li>
+          <li><span>05</span><div><strong>President</strong><small>Leads the Executive Committee and oversees the fund's overall direction</small></div><em>Elected by the Committee</em></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="approach section-pad" id="approach">
+      <div class="approach-intro reveal">
+        <p class="kicker kicker-light"><span>03</span> Our approach</p>
+        <h2>Our investment<br><em>process.</em></h2>
+        <p>Our process is based on detailed research, constructive scrutiny and collective accountability.</p>
+      </div>
+      <div class="principles">
+        <article class="principle reveal">
+          <span class="principle-num">01</span>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="21" cy="21" r="11"></circle>
+              <path d="M29 29l10 10M16 24v-6M21 24v-10M26 24v-3"></path>
+            </svg>
+          </div>
+          <h3>Fundamental research</h3>
+          <p>We study businesses from the ground up—industry dynamics, financial quality, competitive position and long-term opportunity.</p>
+        </article>
+        <article class="principle reveal">
+          <span class="principle-num">02</span>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M14 8h16l7 7v25H14zM30 8v8h7"></path>
+              <path d="M20 24l3 3 6-7M20 33h11"></path>
+            </svg>
+          </div>
+          <h3>Investment review</h3>
+          <p>Members assess each investment thesis, review the principal risks and evaluate whether its conclusions are supported by the available evidence.</p>
+        </article>
+        <article class="principle reveal">
+          <span class="principle-num">03</span>
+          <div class="principle-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M9 39h30M13 34V22h7v12M21 34V14h7v20M29 34V9h7v25"></path>
+              <path d="M11 16l8-7 7 5 11-9"></path>
+            </svg>
+          </div>
+          <h3>Analyst evaluation</h3>
+          <p>Investment proposals are evaluated by our analysts, with consideration given to the supporting research, valuation, principal risks and suitability for the portfolio.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="portfolio section-pad" id="portfolio">
+      <div class="portfolio-head reveal">
+        <div>
+          <p class="kicker"><span>04</span> Portfolio</p>
+          <h2>Portfolio<br><em>overview.</em></h2>
+        </div>
+        <p>A diversified, research-led portfolio developed through member pitches and structured evaluation by our analysts.</p>
+      </div>
+
+      <div class="allocation reveal">
+        <div class="allocation-chart" role="img" aria-label="Portfolio sector allocation: Technology 32%, Healthcare 27%, Financial Services 17%, Materials 15%, Consumer 5%, Energy 4%">
+          <div class="allocation-centre"><strong>6</strong><span>Sectors</span></div>
+        </div>
+        <div class="allocation-copy">
+          <p class="micro-label">Sector allocation</p>
+          <h3>Current allocation across six industry sectors.</h3>
+          <div class="legend">
+            <div><i class="c1"></i><span>Technology</span><strong>32%</strong></div>
+            <div><i class="c2"></i><span>Healthcare</span><strong>27%</strong></div>
+            <div><i class="c3"></i><span>Financial services</span><strong>17%</strong></div>
+            <div><i class="c4"></i><span>Materials</span><strong>15%</strong></div>
+            <div><i class="c5"></i><span>Consumer</span><strong>5%</strong></div>
+            <div><i class="c6"></i><span>Energy</span><strong>4%</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="portfolio-note reveal">Portfolio information is shown for educational purposes only and does not constitute investment advice. Capital is at risk.</p>
+    </section>
+
+    <section class="join section-pad" id="join">
+      <div class="join-heading reveal">
+        <p class="kicker"><span>05</span> Join the fund</p>
+        <h2>Membership.</h2>
+        <p>No prior investing experience is required. New members are admitted through two annual intake periods, in September and February.</p>
+      </div>
+      <div class="join-steps">
+        <article class="join-step reveal">
+          <span>Step 01</span><h3>Apply</h3>
+          <p>Tell us what interests you and why you want to join the fund.</p>
+        </article>
+        <article class="join-step reveal">
+          <span>Step 02</span><h3>Education series</h3>
+          <p>Complete the six-week programme covering investment research, financial analysis and valuation.</p>
+        </article>
+        <article class="join-step reveal">
+          <span>Step 03</span><h3>Research and pitch</h3>
+          <p>Work with other participants to analyse a selected group of equities and present your recommendations to the fund.</p>
+        </article>
+        <article class="join-step reveal">
+          <span>Step 04</span><h3>Progress within the fund</h3>
+          <p>Advance into fund management or pursue a specialist role in sector research, investment strategy, financial writing or editing.</p>
+        </article>
+      </div>
+      <div class="join-cta reveal" id="join-application">
+        <p>We review new membership applications every September and February.</p>
+        <a class="button button-burgundy" href="https://docs.google.com/forms/d/e/1FAIpQLScsEZROIhG37NounwCizdPQ0LRBqoYuk6j4_01O0-hogD96ww/viewform?usp=publish-editor" target="_blank" rel="noreferrer">Apply for membership <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="contact-mark"><img src="assets/logo.png" alt=""></div>
+      <p class="kicker kicker-light reveal"><span>06</span> Contact</p>
+      <h2 class="reveal">Contact the<br><em>fund.</em></h2>
+      <a class="contact-email reveal" href="mailto:yorkstudentinvestmentfund@gmail.com">yorkstudentinvestmentfund@gmail.com <span>↗</span></a>
+      <div class="social-links reveal">
+        <a href="https://www.instagram.com/ysif_york/" target="_blank" rel="noreferrer">Instagram <span>↗</span></a>
+        <a href="https://www.linkedin.com/company/york-student-investment-fund/" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <a class="brand footer-brand" href="#top">
+        <span class="brand-mark"><img src="assets/logo.png" alt=""></span>
+        <span class="brand-copy"><strong>YSIF</strong><small>York Student Investment Fund</small></span>
+      </a>
+      <p>Independent and<br>student led</p>
+    </div>
+    <div class="disclaimer">
+      <h2>Important information</h2>
+      <p>YSIF is an independent student organisation based at the University of York. It is not legally affiliated with, operated by, or endorsed by the University of York. YSIF is a student-led educational society operated for academic and extracurricular purposes only. The society does not provide regulated investment services, financial advice, or investment management services. Membership fees may be used to support society activities, including collectively managed educational investing activities conducted by members of the society. Membership does not constitute ownership of portfolio assets, entitlement to investment returns, or participation in a collective investment scheme under Section 235 of the Financial Services and Markets Act 2000 (FSMA). Membership fees are non-refundable and cannot be redeemed for any proportional share of the society portfolio or investment gains. The society is not authorised or regulated by the Financial Conduct Authority (FCA). All activities are conducted collectively by members for educational purposes only. Capital invested by the society is at risk.</p>
+    </div>
+    <div class="footer-bottom"><span>© 2026 York Student Investment Fund</span><span>Based in York · England</span></div>
   </footer>
-  
-  <footer>
-    <p>YSIF is a student-led educational society operated for academic and extracurricular purposes only. The society does not provide regulated investment services, financial advice, or investment management services. 
-      
-      Membership fees may be used to support society activities, including collectively managed educational investing activities conducted by members of the society. Membership does not constitute ownership of portfolio assets, entitlement to investment returns, or participation in a collective investment scheme under Section 235 of the Financial Services and Markets Act 2000 (FSMA). 
-      Membership fees are non-refundable and cannot be redeemed for any proportional share of the society portfolio or investment gains.
-      
-      The society is not authorised or regulated by the Financial Conduct Authority (FCA). 
-      All activities are conducted collectively by members for educational purposes only. Capital invested by the society is at risk.</p>
-  </footer>
-  
+
+  <script src="script.js"></script>
 </body>
 </html>
-
